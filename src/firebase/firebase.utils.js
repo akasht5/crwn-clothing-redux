@@ -21,7 +21,7 @@ export const firestore = firebase.firestore();
 
 //Function for Log in with email and password
 export const createUserProfileDocument = async ( userAuth,additionalData ) => {
-    if(!userAuth) return
+    if(!userAuth) return;
 
     const userRef = firestore.doc(`users/${userAuth.uid}`);
 
@@ -41,10 +41,9 @@ export const createUserProfileDocument = async ( userAuth,additionalData ) => {
         } catch (error) {
             console.log(error.message);
         }
-
     }
 
-    return userAuth;
+    return userRef;
 }
 
 //Create am instance of Google Auth Provider

@@ -5,7 +5,6 @@ import CustomButtom from '../custom-button/custom-button.component'
 
 import { auth } from '../../firebase/firebase.utils'
 import { createUserProfileDocument } from '../../firebase/firebase.utils'
-import { withRouter } from 'react-router-dom'
 
 import './sign-up.styles.scss'
 
@@ -30,8 +29,6 @@ class SignUp extends Component{
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { history } = this.props;
-
         const { displayName,email,password,confirmPassword } = this.state;
         
         if(password !== confirmPassword){
@@ -50,8 +47,6 @@ class SignUp extends Component{
                 password : '',
                 confirmPassword : ''
             });
-
-            history.push('/');
 
         } catch (error) {
             console.log('ERROR : ',error.message);
@@ -103,4 +98,4 @@ class SignUp extends Component{
     } 
 }
 
-export default withRouter(SignUp)
+export default SignUp
