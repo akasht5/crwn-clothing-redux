@@ -1,6 +1,7 @@
 body{
   font-family: 'Roboto', sans-serif;
   padding:20px 60px;
+  user-select: none;
 }
 *{
   box-sizing: border-box;

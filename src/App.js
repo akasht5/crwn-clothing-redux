@@ -58,9 +58,8 @@ class App extends Component{
               )
               }
               />
-              <Route exact path='/shop' component={Shop} />
+              <Route path='/shop' component={Shop} />
               <Route exact path='/checkout' component={CheckoutPage} />
-              <Route exact path='/shop/:collection' />
           </Switch>
       </div>
     );
