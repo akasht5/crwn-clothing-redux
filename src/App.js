@@ -31,11 +31,8 @@ class App extends Component{
               }
               );
             });
-            
-        }else{
-            setCurrentUser(userAuth);
         }
-
+        setCurrentUser(userAuth);
       });
   }
   
@@ -75,4 +72,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
-

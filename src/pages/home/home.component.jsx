@@ -2,13 +2,13 @@ import React from 'react'
 
 import Directory from '../../components/directory/directory.component'
 
-import './home.styles.scss'
+import { HomeContainer } from './home.styles'
 
 const Home = () => {
     return (
-        <div className="home">
+        <HomeContainer>
             <Directory />
-        </div>
+        </HomeContainer>
     )
 }
 
