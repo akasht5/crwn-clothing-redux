@@ -62,7 +62,7 @@ export const addCollectionAndDocuments = async (collectionKey,objectToAdd) => {
 export const convertCollectionsSnapshotToMap = collections => {
     const transformedCollection = collections.docs.map(doc => {
         const { title,items } = doc.data();
-
+            
         return {
             id:doc.id,
             routeName : encodeURI(title.toLowerCase()),
@@ -75,17 +75,25 @@ export const convertCollectionsSnapshotToMap = collections => {
         accumulator[collection.title.toLowerCase()] = collection;
         return accumulator
     },{});
+}
 
+export const getCurrentUser = () => {
+    return new Promise((resolve,reject) => {
+        const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+            unsubscribe();
+            resolve(userAuth);
+        },reject)
+    })
 }
 
 //Create am instance of Google Auth Provider
-const provider = new firebase.auth.GoogleAuthProvider();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 //Set custom parameters to provider(select_account)
-provider.setCustomParameters({ prompt : 'select_account' });
+googleProvider.setCustomParameters({ prompt : 'select_account' });
 
 //Pass the provider to signInWithPopUp
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;
 
